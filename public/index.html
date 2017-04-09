@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="birdPredictor">
+<head>
+  <!-- META -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+  <title>Bird Predictor App</title>
+  <!-- JS Links -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+  <script src="https://use.fontawesome.com/e075f06003.js"></script>
+  <script src="js/core.js"></script>
+  <!-- Stylesheets -->
+  <link href='css/styles.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Acme|Baloo+Chettan" rel="stylesheet">
+</head>
+<body ng-controller="mainController" ng-init="onLoad()">
+  <header>
+    <span>Bird Feeder Predictor</span>
+  </header>
+  <div class="observation-content">
+    <div class="observation-form">
+      <p>Tell us what you've seen</p>
+      <form>
+       <label for="birdType"> Bird type: </label><br>
+        <select name="birdSelect" ng-model="data.birdType">
+          <option ng-repeat="bird in birdTypes" value="{{bird}}">{{bird}}</option>
+        </select><br>
+        <label for="time"> Time: </label><br>
+        <input type="time" name="time" ng-model="data.time" placeholder="HH:mm" /><br>
+        <div class="button-container">
+          <button ng-click="submit()">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="observation-list">
+      <p>Logged obvservations</p>
+      <ul>
+        <li ng-repeat="obv in observations">{{obv.type}} - {{obv.time.toLocaleTimeString()}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="predictor-content">
+    <div class="">
+      <button ng-click="">Predict what bird will show up next!</button>
+    </div>
+  </div>
+</body>
+</html>

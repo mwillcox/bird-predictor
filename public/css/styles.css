@@ -1,0 +1,82 @@
+body{
+	font-family: 'Droid Sans', 'san-serif';
+}
+
+header{
+	text-align: center;
+	font-family: Acme, 'san-serif';
+	margin: 0 auto;
+	background-color: #D37F6D;
+	color: white;
+	padding: 50px;
+	font-size: 44px;
+}
+
+.observation-content{
+	width: 60%;
+	margin: 30px auto;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-around;
+}
+
+.observation-form{
+	width: 40%;
+	border: 1px grey solid;
+	padding:20px;
+}
+
+.observation-form p, .observation-list p{
+	font-size: 20px;
+	text-align: center;
+}
+
+.observation-form select, .observation-form input{
+	width: 100px;
+	margin: 10px;
+}
+
+.button-container{
+	margin: 20px 0;
+	text-align: center;
+}
+
+.observation-form button{
+	background-color: #D37F6D;
+	width: 100px;
+	border-radius: 25px;
+	color: #ffffff;
+	padding: 10px;
+	border: none;
+	font-size: 14px;
+}
+
+.observation-list{
+	width: 40%;
+	border: 1px grey solid;
+	padding:20px;
+}
+
+.predictor-content{
+	width: 30%;
+	margin: 30px auto;
+	text-align: center;
+}
+
+.predictor-content button{
+	background-color: #D37F6D;
+	font-family: Acme, 'san-serif';
+	width: 300px;
+	border-radius: 25px;
+	color: #ffffff;
+	padding: 10px;
+	border: none;
+	font-size: 34px;
+}
+
+button:hover{
+	color: #D37F6D;
+	background-color: black;
+	cursor: pointer;
+}
+
