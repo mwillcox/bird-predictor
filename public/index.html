@@ -1,7 +1,7 @@
 <!doctype html>
 <html ng-app="birdPredictor">
 <head>
-  <!-- META -->
+  <!-- Meta-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
   <title>Bird Predictor App</title>
@@ -40,9 +40,9 @@
     </div>
   </div>
   <div class="predictor-content">
-    <div class="">
-      <button ng-click="predict()">Predict what bird will show up next!</button>
-    </div>
+    <h2>Once you've added observations, we'll predict the next sighting!</h2>
+    <button ng-click="predict()"> <i class="fa fa-cogs" aria-hidden="true"></i> Generate prediction</button>
+    <p class="prediction" ng-show="prediction != null">A {{prediction.type}} will appear at {{prediction.time}}</p>
   </div>
 </body>
 </html>

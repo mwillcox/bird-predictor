@@ -6,9 +6,9 @@ header{
 	text-align: center;
 	font-family: Acme, 'san-serif';
 	margin: 0 auto;
-	background-color: #D37F6D;
+	background-color: #76B2C0;
 	color: white;
-	padding: 50px;
+	padding: 35px;
 	font-size: 44px;
 }
 
@@ -43,7 +43,7 @@ header{
 }
 
 .observation-form button{
-	background-color: #D37F6D;
+	background-color: #76B2C0;
 	width: 100px;
 	border-radius: 25px;
 	color: #ffffff;
@@ -61,24 +61,29 @@ header{
 }
 
 .predictor-content{
-	width: 30%;
+	width: 70%;
 	margin: 30px auto;
 	text-align: center;
 }
 
 .predictor-content button{
-	background-color: #D37F6D;
-	font-family: Acme, 'san-serif';
+	background-color: #76B2C0;
 	width: 300px;
 	border-radius: 25px;
 	color: #ffffff;
-	padding: 10px;
+	padding: 20px;
 	border: none;
-	font-size: 34px;
+	font-size: 24px;
 }
 
-button:hover & button:enabled{
-	color: #D37F6D;
+.prediction{
+	font-family: Acme, 'san-serif';
+	color: #76B2C0;
+	font-size: 40px;
+}
+
+button:hover{
+	color: #76B2C0;
 	background-color: black;
 	cursor: pointer;
 }
