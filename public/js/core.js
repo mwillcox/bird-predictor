@@ -1,8 +1,9 @@
 var birdPredictor = angular.module('birdPredictor', []);
 
-birdPredictor.controller('mainController', function mainController($scope) {
+birdPredictor.controller('mainController', function mainController($scope, $http) {
   $scope.observations = [];
   $scope.birdTypes = ['Robin', 'Bluejay', 'Chickadee']
+
   $scope.submit = function(){
     console.log($scope.data.birdType);
     console.log($scope.data.time);
@@ -11,7 +12,19 @@ birdPredictor.controller('mainController', function mainController($scope) {
         time: $scope.data.time
     };
     $scope.observations.push(obvservation);
-    console.log($scope.observations);
+    
   }
+
+  $scope.predict = function(){
+    // need to add validation
+    $http.post('/predict', $scope.observations)
+      .then(function(data) {
+        console.log(data);
+      })
+      .catch(function(data) {
+        console.log('Error: ' + data);
+      });
+  };
+
 });
 

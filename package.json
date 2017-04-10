@@ -2,7 +2,7 @@
   "name": "bird-predictor",
   "version": "1.0.0",
   "description": "Predicts what type of bird will be at a bird feeder at any given time",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "bayes": "0.0.6",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "body-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "morgan": "^1.1.1"
   }
 }
