@@ -18,6 +18,7 @@ header{
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:space-around;
+	max-width: 1000px;
 }
 
 .observation-form{
@@ -55,6 +56,8 @@ header{
 	width: 40%;
 	border: 1px grey solid;
 	padding:20px;
+	overflow-y: scroll;
+	max-height: 300px;
 }
 
 .predictor-content{
@@ -74,7 +77,7 @@ header{
 	font-size: 34px;
 }
 
-button:hover{
+button:hover & button:enabled{
 	color: #D37F6D;
 	background-color: black;
 	cursor: pointer;

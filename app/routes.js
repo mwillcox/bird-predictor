@@ -5,37 +5,30 @@ module.exports = function(app){
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  var classifier = bayes()
-
-  // teach it positive phrases
-  classifier.learn('1', 'chickadee')
-  classifier.learn('1', 'chickadee')
-  classifier.learn('1', 'chickadee')
-  classifier.learn('1', 'chickadee')
-  classifier.learn('1', 'chickadee')
-  classifier.learn('2', 'bluejay')
-  classifier.learn('12', 'chickadee')
-  classifier.learn('13', 'chickadee')
-  classifier.learn('14', 'chickadee')
-  classifier.learn('5', 'robin')
-  classifier.learn('5', 'robin')
-
-  // now ask it to categorize a document it has never seen before
-  console.log('Classified: ' + classifier.categorize('20'));
-
-  // serialize the classifier's state as a JSON string.
-  var stateJson = classifier.toJson()
-  //console.log(stateJson);
-
-  // load the classifier back from its JSON representation.
-  var revivedClassifier = bayes.fromJson(stateJson)
-  console.log(revivedClassifier);
-
+  // predict route
   app.post('/predict', function(req, res){
     if(req.body){
-      console.log("hey");
-      res.send('Success');
+      result = classify(req.body);
+      res.send(result);
     }
-    
   });
 };
+
+function classify(list){
+  var classifier = bayes();
+  for(var i = 0; i < list.length; i++){
+    // teach the classifier based off user's observations
+    classifier.learn(list[i].time, list[i].type);
+  }
+
+  // generate a random time
+  var d = new Date();
+  d.setHours(Math.random() * 12);
+  d.setMinutes(Math.random() * 60);
+  var time = d.toTimeString().split(" ")[0].slice(0,5);
+
+  // ask the classifier which type bird would appear based off random time
+  var type = classifier.categorize(time);
+  var result = {time: time, type: type};
+  return result;
+}

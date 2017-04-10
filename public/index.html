@@ -19,23 +19,23 @@
   </header>
   <div class="observation-content">
     <div class="observation-form">
-      <p>Tell us what you've seen</p>
-      <form>
-       <label for="birdType"> Bird type: </label><br>
-        <select name="birdSelect" ng-model="data.birdType">
-          <option ng-repeat="bird in birdTypes" value="{{bird}}">{{bird}}</option>
+      <p>To help us predict, enter all observations below</p>
+      <form name="form" novalidate>
+        <label for="birdType"> Bird type: </label><br>
+        <select name="birdSelect" ng-model="data.birdType" required>
+          <option ng-repeat="type in birdTypes" value="{{type}}">{{type}}</option>
         </select><br>
-        <label for="time"> Time: </label><br>
-        <input type="time" name="time" ng-model="data.time" placeholder="HH:mm" /><br>
+        <label for="time"> Time spotted: </label><br>
+        <input type="time" name="time" ng-model="data.time" placeholder="HH:mm" required /><br>
         <div class="button-container">
           <button ng-click="submit()">Submit</button>
         </div>
       </form>
     </div>
     <div class="observation-list">
-      <p>Logged obvservations</p>
+      <p>Previous obvservations</p>
       <ul>
-        <li ng-repeat="obv in observations">{{obv.type}} - {{obv.time.toLocaleTimeString()}}</li>
+        <li ng-repeat="obv in observations">{{obv.type}} at {{obv.displayTime}}</li>
       </ul>
     </div>
   </div>
